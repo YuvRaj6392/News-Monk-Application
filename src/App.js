@@ -6,7 +6,7 @@ export default function App() {
   return (
     <div>
    <Navbar />
-   <News />
+   <News apiKey='ApiKey' country='in' category='sports' />
     </div>
   )
 }
