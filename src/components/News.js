@@ -7,9 +7,11 @@ export default function News({apiKey,country,category}) {
     const [page,setPage]=useState(1);
     const [loading,setLoading]=useState(false)
     useEffect(()=>{
+      const cat=category.toUpperCase();
+      document.title=`${cat} - NewsMonk`
       window.scrollTo(0, 0)
       setLoading(true)
-        fetch(`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apiKey}&page=${page}&pageSize=70`).then(res=>res.json()).then(data=>{
+        fetch(`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apiKey}&page=${page}&pageSize=100`).then(res=>res.json()).then(data=>{
           setLoading(false)
             console.log(data.articles)
             setArticles(data.articles);
